@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adopt a Pet - Find Your New Companion</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+      
+      body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4a4a4a; /* primary color */
+}
+
+.background {
+    background-image: url(adopt_pet.jpg);
+    filter: blur(5px);
+    background-size: cover; 
+    /* background-position: center;  */
+    background-repeat: no-repeat; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; 
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.95); /* form background color */
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-header h1 {
+    color: #f9a825; /* secondary color */
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.form-header h3 {
+    color: #4a4a4a; /* primary color */
+    font-weight: normal;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+label span {
+    color: #e53935; /* accent color */
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #f9a825; /* secondary color */
+    outline: none;
+}
+
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #f9a825; /* secondary color */
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-label:hover {
+    background-color: #f57f17; /* darker shade of secondary color */
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit {
+    background-color: #f9a825; /* secondary color */
+    color: white;
+}
+
+.btn-submit:hover {
+    background-color: #f57f17; /* darker shade of secondary color */
+}
+
+.btn-reset {
+    background-color: #e0e0e0;
+    color: #4a4a4a; /* primary color */
+}
+
+.btn-reset:hover {
+    background-color: #bdbdbd;
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h1><i class="fas fa-paw"></i> ADOPT A PET</h1>
+            <h3>Help a furry friend find a loving home</h3>
+        </div>
+
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="petName">Pet Name <span>*</span></label>
+                <input type="text" id="petName" name="petName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="petAge">Pet Age <span>*</span></label>
+                <input type="tel" id="petAge" name="petAge" required>
+            </div>
+
+            <div class="form-group">
+                <label for="breed">Breed <span>*</span></label>
+                <input type="text" id="breed" name="breed" required>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location <span>*</span></label>
+                <input type="text" id="location" name="location" required>
+            </div>
+
+            <div class="form-group">
+                <label for="color">Color <span>*</span></label>
+                <input type="text" id="color" name="color" required>
+            </div>
+
+            <div class="form-group">
+                <label for="vaccinated">Vaccinated <span>*</span></label>
+                <select id="vaccinated" name="vaccinated" required>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="trained">Trained <span>*</span></label>
+                <select id="trained" name="trained" required>
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category <span>*</span></label>
+                <select id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="bird">Bird</option>
+                    <option value="rabbit">Rabbit</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email <span>*</span></label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone <span>*</span></label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="file" id="petImage" name="petImage" accept="image/*" required class="file-input">
+                <label for="petImage" class="file-label">
+                    <i class="fas fa-upload"></i> Upload Pet Image
+                </label>
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" class="btn btn-submit">Submit</button>
+                <button type="reset" class="btn btn-reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
