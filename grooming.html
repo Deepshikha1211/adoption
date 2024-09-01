@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurFables Pet Grooming & Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: white;
+            color: black;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .logo-container img {
+            margin-right: 10px;
+        }
+
+        nav {
+            flex-grow: 1;
+            text-align: center;
+            margin-left:37%;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #e74c3c;
+        }
+
+
+        .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 350px; 
+    padding: 10px;
+    border-radius: 8px;
+   
+}
+
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px 0 0 8px; 
+    outline: none;
+}
+
+.search-container input[type="text"]::placeholder {
+    color: #888; 
+}
+
+.search-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: red; 
+    color: white;
+    font-size: 16px;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+    background-color: rgb(250, 79, 79); 
+}
+
+.search-container button i {
+    font-size: 18px;
+}
+
+
+        .hero {
+            background-image: url('care.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background: rgba(0, 0, 0, 0.5); */
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .service-card {
+            flex-basis: calc(33.333% - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+
+        .service-card i {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .pet-types {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 43px;
+        }
+
+        .pet-type {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pet-type img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid black;
+        }
+
+        .pricing {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            flex-basis: calc(33.333% - 20px);
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .price {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin: 20px 0;
+            color: #e74c3c;
+        }
+
+        form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width:50%;
+            margin-left: 25%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .testimonials {
+            background-color: #ecf0f1;
+            padding: 80px 0;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .testimonial-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: #fff;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #f1c40f;
+        }
+
+        @media (max-width: 768px) {
+            .service-card, .price-card {
+                flex-basis: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .pet-type img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .arrow{
+                 position: fixed;
+                 background-color: rgba(161,109,14,1);
+                 border-radius: 50px;
+                height: 50px;
+                bottom: 40px;
+                 right: 50px;
+             text-decoration: none;
+              text-align: center;
+              line-height: 50px;
+   
+}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+                <div class="logo-container">
+                    <a href="#" id="logo">
+                        <img src="pet_logo-removebg-preview.png" alt="FurFables Logo" width="150px">
+                        FurFables
+                    </a>
+                </div>
+                <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pet-types">Pet Types</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#booking">Book Now</a></li>
+                </ul>
+                </nav>
+                <div class="search-container"> 
+                  
+                        <input type="text" placeholder="Search..." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+               
+                </div> 
+        </div>
+    </header>
+
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <br>
+            <h1>Professional Pet Grooming & Care</h1>
+            <p>Pamper your furry friend with our expert grooming services</p><br><br>
+            <a href="#booking" class="btn">Book Now</a>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service-card">
+                    <i class="fas fa-bath"></i>
+                    <h3>Full Grooming</h3>
+                    <p>Complete bath, haircut, nail trimming, and ear cleaning</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-shower"></i>
+                    <h3>Bath & Brush</h3>
+                    <p>Thorough bath, blow-dry, and brush out</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cut"></i>
+                    <h3>Nail Trim</h3>
+                    <p>Quick and gentle nail trimming service</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-paw"></i>
+                    <h3>De-shedding Treatment</h3>
+                    <p>Reduce shedding and promote a healthy coat</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tooth"></i>
+                    <h3>Teeth Cleaning</h3>
+                    <p>Maintain your pet's oral hygiene</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bug"></i>
+                    <h3>Flea Treatment</h3>
+                    <p>Effective flea removal and prevention</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pet-types">
+        <div class="container">
+            <h2>We Groom All Pet Types</h2>
+            <div class="pet-types">
+                <div class="pet-type">
+                    <img src="small dog.jpg" alt="Dog">
+                    <h3>Dogs</h3>
+                </div>
+                <div class="pet-type">
+                    <img src="cats.jpeg" alt="Cat">
+                    <h3>Cats</h3>
+                </div>
+                <div class="pet-type">
+                    <img src="rabbit4.jpg" alt="Rabbit">
+                    <h3>Rabbits</h3>
+                </div>
+                <div class="pet-type">
+                    <img src="pig.jpg" alt="Guinea Pig">
+                    <h3>Guinea Pigs</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <h2>Pricing</h2>
+            <div class="pricing">
+                <div class="price-card">
+                    <h3>Small Pets</h3>
+                    <p class="price">₹499</p>
+                    <p>For pets under 20 lbs</p>
+                    <ul>
+                        <li>Full grooming</li>
+                        <li>Nail trim</li>
+                        <li>Ear cleaning</li>
+                    </ul>
+                </div>
+                <div class="price-card">
+                    <h3>Medium Pets</h3>
+                    <p class="price">₹599</p>
+                    <p>For pets 20-50 lbs</p>
+                    <ul>
+                        <li>Full grooming</li>
+                        <li>De-shedding treatment</li>
+                        <li>Teeth cleaning</li>
+                    </ul>
+                </div>
+                <div class="price-card">
+                    <h3>Large Pets</h3>
+                    <p class="price">₹799</p>
+                    <p>For pets over 50 lbs</p>
+                    <ul>
+                        <li>Full grooming</li>
+                        <li>Flea treatment</li>
+                        <li>Special coat conditioning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking">
+        <div class="container">
+            <h2>Book an Appointment</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="pet-name">Pet's Name</label>
+                    <input type="text" id="pet-name" name="pet-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="pet-type">Pet Type</label>
+                    <select id="pet-type" name="pet-type" required>
+                        <option value="">Select pet type</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="rabbit">Rabbit</option>
+                        <option value="guinea-pig">Guinea Pig</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="service">Service Required</label>
+                    <select id="service" name="service" required>
+                        <option value="">Select a service</option>
+                        <option value="full-grooming">Full Grooming</option>
+                        <option value="bath-brush">Bath & Brush</option>
+                        <option value="nail-trim">Nail Trim</option>
+                        <option value="de-shedding">De-shedding Treatment</option>
+                        <option value="teeth-cleaning">Teeth Cleaning</option>
+                        <option value="flea-treatment">Flea Treatment</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Notes</label>
+                    <textarea id="message" name="message" rows="5"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="team-1.jpg" alt="Client Photo">
+                    <p>"FurFables is the best! My dog always comes back looking fantastic."</p>
+                    <h3>- Sarah J.</h3>
+                </div>
+                <div class="testimonial-card">
+                    <img src="team-2.jpg" alt="Client Photo">
+                    <p>"Great service and friendly staff. My cat is usually anxious, but they handled her so well!"</p>
+                    <h3>- Michael B.</h3>
+                </div>
+                <div class="testimonial-card">
+                    <img src="team-3.jpg" alt="Client Photo">
+                    <p>"I highly recommend FurFables for their excellent grooming services. My rabbit loved it!"</p>
+                    <h3>- Emily K.</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 FurFables Pet Grooming & Care. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+    <a href="#" class="arrow"><i><img src="up-arrow.png" alt="" width="50px"></i></a>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate a Pet</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            background-image: url('DONATE1.jpg');
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* filter: blur(5px);   */
+            
+            z-index: -1; 
+        }
+
+        .form-container {
+            background-color: rgba(120, 84, 47, 0.9); 
+            height: auto;
+            width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            position: relative;
+            z-index: 1;
+            opacity: .9;
+        }
+
+        .form-container h1, .form-container h3 {
+            text-align: center;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-container label span {
+            color: red;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="tel"],
+        .form-container input[type="email"],
+        .form-container input[type="file"],
+        .form-container select,
+        .form-container textarea,
+        .form-container input[type="submit"],
+        .form-container input[type="reset"] {
+            width: 95%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: none;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-container input[type="submit"],
+        .form-container input[type="reset"] {
+            width: 48%;
+            margin-left: 2%;
+            cursor: pointer;
+        }
+
+        .form-container textarea {
+            width: 100%;
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-container h2 span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div> <!-- Background image with blur -->
+
+    <div class="form-container">
+        <h1>DONATE A PET</h1>
+        <h3>Please fill out the form below to add the pet for donation</h3>
+        <h2>Mandatory Field <span>*</span></h2>
+
+        <form action="#" method="post">
+            <label for="petName">Pet Name: <span>*</span></label>
+            <input type="text" id="petName" name="petName" required>
+
+            <label for="petAge">Pet Age: <span>*</span></label>
+            <input type="tel" id="petAge" name="petAge" required>
+
+            <label for="breed">Breed: <span>*</span></label>
+            <input type="text" id="breed" name="breed" required>
+
+            <label for="location">Location: <span>*</span></label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="color">Color: <span>*</span></label>
+            <input type="text" id="color" name="color" required>
+
+            <label for="vaccinated">Vaccinated: <span>*</span></label>
+            <select id="vaccinated" name="vaccinated" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="trained">Trained: <span>*</span></label>
+            <select id="trained" name="trained" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label for="category">Category: <span>*</span></label>
+            <select id="category" name="category" required>
+                <option value="dog">Dog</option>
+                <option value="cat">Cat</option>
+                <option value="bird">Bird</option>
+                <option value="rabbit">Rabbit</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="email">Email: <span>*</span></label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone: <span>*</span></label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+
+            <label for="petImage">Select Image: <span>*</span></label>
+            <input type="file" id="petImage" name="petImage" accept="image/*" required>
+
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+</body>
+</html>
